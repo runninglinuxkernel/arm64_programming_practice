@@ -1,0 +1,28 @@
+#include "base.h"
+
+#define IRQ_BASIC_PENDING	(PBASE+0x0000B200)
+#define IRQ_PENDING_0   (PBASE+0x0000B200)
+#define IRQ_PENDING_1		(PBASE+0x0000B204)
+#define IRQ_PENDING_2		(PBASE+0x0000B208)
+#define FIQ_CONTROL		(PBASE+0x0000B20C)
+#define ENABLE_IRQS_0		(PBASE+0x0000B210)
+#define ENABLE_IRQS_1		(PBASE+0x0000B214)
+#define ENABLE_IRQS_2		(PBASE+0x0000B218)
+
+#define SYSTEM_TIMER_IRQ_0	(1 << 0)
+#define SYSTEM_TIMER_IRQ_1	(1 << 1)
+#define SYSTEM_TIMER_IRQ_2	(1 << 2)
+#define SYSTEM_TIMER_IRQ_3	(1 << 3)
+
+#define ARM_TIMER_IRQ (1 << 0)
+
+#define CORE0_INT_CTR  (PERIPHERAL_BASE+0x40)
+#define CORE0_INT_SOURCE (PERIPHERAL_BASE+0x60)
+#define LOCAL_TIMER_INT         (1 << 11)
+#define CNTPNSIRQ_Int           (1 << 1)
+
+#define GENERIC_TIMER_IRQ 30
+#define SYSTEM_TIMER0_IRQ  96
+#define SYSTEM_TIMER1_IRQ  97
+
+void handle_timer_irq(void);

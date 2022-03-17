@@ -1,0 +1,63 @@
+
+root@figo-OptiPlex-9020:false_sharing# perf c2c record -F 10000 ./false_sharing_struct
+ cache false sharing: 7394 ms
+[ perf record: Woken up 55 times to write data ]
+[ perf record: Captured and wrote 13.716 MB perf.data (177504 samples) ]
+root@figo-OptiPlex-9020:false_sharing# perf c2c report --stats
+=================================================
+            Trace Event Information
+=================================================
+  Total records                     :     177504
+  Locked Load/Store Operations      :          1
+  Load Operations                   :      76801
+  Loads - uncacheable               :          0
+  Loads - IO                        :          0
+  Loads - Miss                      :          0
+  Loads - no mapping                :          0
+  Load Fill Buffer Hit              :      12598
+  Load L1D hit                      :      64188
+  Load L2D hit                      :          3
+  Load LLC hit                      :         11
+  Load Local HITM                   :          5
+  Load Remote HITM                  :          0
+  Load Remote HIT                   :          0
+  Load Local DRAM                   :          1
+  Load Remote DRAM                  :          0
+  Load MESI State Exclusive         :          1
+  Load MESI State Shared            :          0
+  Load LLC Misses                   :          1
+  LLC Misses to Local DRAM          :      100.0%
+  LLC Misses to Remote DRAM         :        0.0%
+  LLC Misses to Remote cache (HIT)  :        0.0%
+  LLC Misses to Remote cache (HITM) :        0.0%
+  Store Operations                  :     100703
+  Store - uncacheable               :          0
+  Store - no mapping                :          2
+  Store L1D Hit                     :      94191
+  Store L1D Miss                    :       6510
+  No Page Map Rejects               :        182
+  Unable to parse data source       :          0
+
+=================================================
+    Global Shared Cache Line Event Information
+=================================================
+  Total Shared Cache Lines          :          1
+  Load HITs on shared lines         :      42461
+  Fill Buffer Hits on shared lines  :      12591
+  L1D hits on shared lines          :      29862
+  L2D hits on shared lines          :          3
+  LLC hits on shared lines          :          5
+  Locked Access on shared lines     :          0
+  Store HITs on shared lines        :      38640
+  Store L1D hits on shared lines    :      32262
+  Total Merged records              :      38645
+
+=================================================
+                 c2c details
+=================================================
+  Events                            : cpu/mem-loads,ldlat=30/P
+                                    : cpu/mem-stores/P
+  Cachelines sort on                : Total HITMs
+  Cacheline data grouping           : offset,pid,iaddr
+(END)
+

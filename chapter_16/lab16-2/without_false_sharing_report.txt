@@ -1,0 +1,62 @@
+root@figo-OptiPlex-9020:false_sharing# gcc -pthread false_sharing_struct.c -o false_sharing_struct
+root@figo-OptiPlex-9020:false_sharing# perf c2c record -F 10000 ./false_sharing_struct
+ cache without false sharing: 2284 ms
+[ perf record: Woken up 27 times to write data ]
+[ perf record: Captured and wrote 6.766 MB perf.data (88391 samples) ]
+root@figo-OptiPlex-9020:false_sharing# perf c2c report --stats
+=================================================
+            Trace Event Information
+=================================================
+  Total records                     :      88391
+  Locked Load/Store Operations      :          1
+  Load Operations                   :      43362
+  Loads - uncacheable               :          0
+  Loads - IO                        :          0
+  Loads - Miss                      :          0
+  Loads - no mapping                :          0
+  Load Fill Buffer Hit              :          5
+  Load L1D hit                      :      43356
+  Load L2D hit                      :          0
+  Load LLC hit                      :          0
+  Load Local HITM                   :          0
+  Load Remote HITM                  :          0
+  Load Remote HIT                   :          0
+  Load Local DRAM                   :          1
+  Load Remote DRAM                  :          0
+  Load MESI State Exclusive         :          1
+  Load MESI State Shared            :          0
+  Load LLC Misses                   :          1
+  LLC Misses to Local DRAM          :      100.0%
+  LLC Misses to Remote DRAM         :        0.0%
+  LLC Misses to Remote cache (HIT)  :        0.0%
+  LLC Misses to Remote cache (HITM) :        0.0%
+  Store Operations                  :      45029
+  Store - uncacheable               :          0
+  Store - no mapping                :          0
+  Store L1D Hit                     :      45006
+  Store L1D Miss                    :         23
+  No Page Map Rejects               :         39
+  Unable to parse data source       :          0
+
+=================================================
+    Global Shared Cache Line Event Information
+=================================================
+  Total Shared Cache Lines          :          0
+  Load HITs on shared lines         :          0
+  Fill Buffer Hits on shared lines  :          0
+  L1D hits on shared lines          :          0
+  L2D hits on shared lines          :          0
+  LLC hits on shared lines          :          0
+  Locked Access on shared lines     :          0
+  Store HITs on shared lines        :          0
+  Store L1D hits on shared lines    :          0
+  Total Merged records              :          0
+
+=================================================
+                 c2c details
+=================================================
+  Events                            : cpu/mem-loads,ldlat=30/P
+                                    : cpu/mem-stores/P
+  Cachelines sort on                : Total HITMs
+  Cacheline data grouping           : offset,pid,iaddr
+
