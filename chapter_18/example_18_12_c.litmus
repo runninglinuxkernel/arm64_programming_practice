@@ -1,0 +1,14 @@
+C test
+"shared_data and flag test"
+{ }
+P0(int *data, int *flag)
+{
+	WRITE_ONCE(*data, 55);
+	WRITE_ONCE(*flag, 1);
+}
+P1(int *data, int *flag)
+{
+	int a= READ_ONCE(*flag);
+	int b = READ_ONCE(*data);
+}
+exists (1:a=1 /\ 1:b!=55)

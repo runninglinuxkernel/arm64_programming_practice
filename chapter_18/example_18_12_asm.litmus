@@ -1,0 +1,13 @@
+AArch64 armv8
+"shared_data and flag test"
+{
+0:X1=data; 0:X3=flag;
+1:X1=flag; 1:X3=data;
+}
+ P0             | P1             ;
+ MOV W0,#55     | LC00:          ;
+ STR W0,[X1]    | LDR W0, [X1]   ;
+ MOV W2,#1      | CMP W0, #1     ;
+ STR W2,[X3]    | B.NE LC00      ;
+                | LDR W5,[X3]  ;
+exists (1:X5!=55)
