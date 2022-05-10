@@ -37,7 +37,7 @@ DEP_FILES = $(OBJ_FILES:%.o=%.d)
 -include $(DEP_FILES)
 
 benos.bin: $(SRC_DIR)/linker.ld $(OBJ_FILES)
-	$(ARMGNU)-ld -T $(SRC_DIR)/linker.ld -o $(BUILD_DIR)/benos.elf  $(OBJ_FILES)
+	$(ARMGNU)-ld -T $(SRC_DIR)/linker.ld -o $(BUILD_DIR)/benos.elf  $(OBJ_FILES) -e _start
 	$(ARMGNU)-objcopy $(BUILD_DIR)/benos.elf -O binary benos.bin
 
 QEMU_FLAGS  += -nographic
@@ -45,4 +45,4 @@ QEMU_FLAGS  += -nographic
 run:
 	qemu-system-aarch64 $(QEMU_FLAGS) -kernel benos.bin
 debug:
-	qemu-system-aarch64 $(QEMU_FLAGS) -kernel benos.bin -S -s
+	qemu-system-aarch64 $(QEMU_FLAGS) -kernel build/benos.elf -S -s
