@@ -7,6 +7,8 @@ my_atomic_data:
 .section .text
 .global atomic_set
 atomic_set:
+	mov x4, 1
+	lsl x0, x4, x0
 1:
 	ldxr x2, [x1]
 	orr x2, x2, x0

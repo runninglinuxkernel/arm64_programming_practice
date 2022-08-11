@@ -50,7 +50,7 @@ void my_data_process_inst(void)
 
 	val = my_atomic_write(0x345);
 
-	atomic_set(0x11, &p1);
+	atomic_set(5, &p1);
 }
 
 void kernel_main(void)
