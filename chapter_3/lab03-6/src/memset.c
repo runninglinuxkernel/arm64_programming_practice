@@ -28,7 +28,8 @@ static void *__memset(char *s, int c, size_t count)
 
 	/*1. check start address is align with 16 bytes */
 	if (address & (align - 1)) {
-		size = address & (align - 1);
+		//fixme: 这里应该是 对齐的后半段
+		size = align - address & (align - 1);
 		__memset_1bytes(p, c, size);
 		p = p + size;
 		left = count - size;
