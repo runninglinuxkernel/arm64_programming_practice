@@ -72,6 +72,11 @@ static int print_func_name(unsigned long addr)
 found:
     p = &func_string;
 
+    if (i == 0) {
+	    string = p;
+	    goto done;
+    }
+
     while (1) {
     	p++;
 
@@ -81,10 +86,13 @@ found:
     	if (i == 0) {
     		p++;
     		string = p;
-    		uart_send_string(string);
     		break;
     	}
     }
+
+done:
+    uart_send_string(string);
+    uart_send_string("\n");
 
     return 0;
 }
@@ -105,6 +113,8 @@ void kernel_main(void)
 
 	/*汇编器lab1：查表*/
 	print_func_name(0x800880);
+	print_func_name(0x800860);
+	print_func_name(0x800800);
 	val = macro_test_1(5, 5);
 	val = macro_test_2(5, 5);
 
