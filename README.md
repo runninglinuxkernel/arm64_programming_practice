@@ -23,6 +23,9 @@ Horry Zheng、 Cherry Chen、 Peter Chen、贾献华等。
 ***关于每个实验，我们在奔跑吧Linux社区的第三季视频课程中有详细的讲解和分析。***     
 有需要的读者可以通过淘宝店或者微店进行订阅。文字不如声音，声音不如视频。视频课程会比图书讲的更深入和详细！
 
+本仓库的另外一个镜像地址：
+https://gitee.com/benshushu/arm64_programming_practice
+
 # 实验平台与实验环境说明
 
 本书的所有实验都可以在如下任意一个实验平台上完成:    
@@ -61,20 +64,30 @@ https://github.com/runninglinuxkernel/runninglinuxkernel_5.0
 
 # 视频课程
 配套视频课程由奔跑吧Linux社区录制完成。   
-https://item.taobao.com/item.htm?spm=a1z10.1-c.w4004-9669165673.6.21286ebf459Ryi&id=628756594037
-https://weidian.com/?userid=1692165428
+购买地址：     
+https://shop115683645.taobao.com/   
+https://weidian.com/?userid=1692165428   
 
-1. 第三季课程海报
-![image](https://benshushu.coding.net/p/arm64/d/arm64_programming_practice/git/raw/main/images/1.jpg)
+1. 第3季课程海报
+![image](images/1.jpg)
 
-2. 课程目录
-![image](https://benshushu.coding.net/p/arm64/d/arm64_programming_practice/git/raw/main/images/2.jpg)
+2. 第3季课程目录
+![image](images/2.jpg)
 
-3. 线下布道与培训
-![image](https://benshushu.coding.net/p/arm64/d/arm64_programming_practice/git/raw/main/images/3.jpg)
+3. 第1季课程目录
+![image](images/season_1.png)
+
+4. 第2季课程目录
+![image](images/season_2.png)
+
+5. 线下布道与培训
+![image](images/3.jpg)
 
 奔跑吧Linux社区可以为广大企业提供线下线上培训与布道，提供两大部分的课程内容：
 1. ARM64（ARMv8和v9架构）体系结构与编程  
-2. Linux内核/驱动开发与调试  
+2. RISC-V体系结构与编程  
+3. Linux内核/驱动开发与调试  
+
 讲师：奔跑吧Linux社区金牌讲师  
-有兴趣的可以联系：runninglinuxkernel@126.com, 或者微信号: runninglinuxkernel
+有兴趣的可以联系：runninglinuxkernel@126.com    
+或者微信号: runninglinuxkernel   
