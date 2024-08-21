@@ -41,10 +41,10 @@ static void *__memset(char *s, int c, size_t count)
 		left = left % align;
 
 		__memset_16bytes(p, data, 16*n);
-
-		if (left)
-			__memset_1bytes(p + 16*n, c, left);
+		p += 16*n;
 	}
+	if (left)
+		__memset_1bytes(p, c, left);
 
 	return s;
 }
